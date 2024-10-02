@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <style>
+        /* Body and background color */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Light soft grayish-blue */
+            color: #333; /* Dark gray for text */
+        }
+
+        /* Header style */
+        header {
+            text-align: center;
+            background-color: #dfe7fd; /* Soft lavender-blue */
+            padding: 10;
+        }
+
+        /* Navigation bar */
+        .topnav {
+            display: flex;
+            justify-content: center;
+            background-color: #bfcde0; /* Muted blue-gray */
+            padding: 10px 0;
+        }
+
+        .topnav a {
+            margin: 0 15px;
+            color: #556581; /* Soft muted blue for links */
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        /* Hover effect on links */
+        .topnav a:hover {
+            background-color: #d1e0f3; /* Light blue on hover */
+            border-radius: 5px;
+        }
+
+        /* Active or selected link */
+        .topnav a.active {
+            background-color: #8aa1c1; /* Soft blue-gray for active link */
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Subtle link colors */
+        a {
+            color: #6b728e; /* Muted purple-blue */
+        }
+
+        a:hover {
+            color: #8c94b6; /* Softer color on hover */
+        }
+
+        /* Main content and form styles */
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #ffffff; /* White background for forms */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #c3cde6; /* Light gray-blue border */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #8aa1c1; /* Soft blue-gray */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6f85a2; /* Slightly darker on hover */
+        }
+    </style>
+    <script>
+      function validateSignupForm() {
+          // Username validation: only alphabets
+          const username = document.querySelector("[name='username']").value;
+          const usernamePattern = /^[A-Za-z\s]+$/;
+          if (!usernamePattern.test(username)) {
+              alert("Username should contain only alphabets.");
+              return false;
+          }
+    
+          // Email validation: must be a valid Gmail address
+          const email = document.querySelector("[name='email']").value;
+          const gmailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/;
+          
+          if (!gmailPattern.test(email)) {
+              alert("Please enter a valid email address (e.g., example@gmail.com, example@yahoo.com, example@outlook.com).");
+              return false;
+          }
+    
+          // Phone number validation: must be exactly 10 digits
+    const phone = document.querySelector("[name='phone']").value;
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+    alert("Phone number must be exactly 10 digits.");
+    return false;
+    }
+    
+          // Password validation: Uppercase, lowercase, number, special character
+          const password = document.querySelector("[name='password']").value;
+          const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if (!passwordPattern.test(password)) {
+              alert("Password must contain at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character.");
+              return false;
+          }
+    
+          return true; // Submit the form if all validations pass
+      }
+      </script>
+</head>
+<body>
+    <header>
+      <marquee><h1><img src="{{ url_for('static', filename='image.jpg') }}" height="50" alt="Image"> SMART HELMET</h1>
+      </marquee></header>
+
+    <div class="topnav">
+      <img src="{{ url_for('static', filename='image.jpg') }}"height="40" alt="Image" class="active"> 
+        <a href="/" >HOME</a>  
+        <a href="/features.html">FEATURES</a>  
+        <a href="/login.html">LOGIN/SIGN UP</a>
+    </div>
+
+    <div class="content">
+        <h1>SIGN UP</h1>
+        <form action="/signup.html" method="POST" onsubmit="return validateSignupForm();">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required placeholder="Your Username ..."><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required placeholder="Your Email..."><br><br>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" required placeholder="Your Phonenumber..."><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required placeholder="Your Password..."><br><br>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <a href="{{ url_for('login') }}">Already have an account? Log in</a>
+    </div>
+</body>
+</html>

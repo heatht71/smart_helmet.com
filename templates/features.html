@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>
+            FEATURES
+        </title>
+        <style>
+            /* Body and background color */
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9; /* Light soft grayish-blue */
+                color: black; /* Dark gray for text */
+            }
+    
+            /* Header style */
+            header {
+                text-align: center;
+                background-color: #dfe7fd; /* Soft lavender-blue */
+                padding: 10;
+            }
+    
+            /* Navigation bar */
+            .topnav {
+                display: flex;
+                justify-content: center;
+                background-color: #bfcde0; /* Muted blue-gray */
+                padding: 10px 0;
+            }
+    
+            .topnav a {
+                margin: 0 15px;
+                color: #556581; /* Soft muted blue for links */
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+    
+            /* Hover effect on links */
+            .topnav a:hover {
+                background-color: #d1e0f3; /* Light blue on hover */
+                border-radius: 5px;
+            }
+    
+            /* Active or selected link */
+            .topnav a.active {
+                background-color: #8aa1c1; /* Soft blue-gray for active link */
+                color: white;
+                border-radius: 5px;
+            }
+    
+            /* Subtle link colors */
+            a {
+                color: #6b728e; /* Muted purple-blue */
+            }
+    
+            a:hover {
+                color: #8c94b6; /* Softer color on hover */
+            }
+    
+            .h1 {
+      border-left: 6px solid black;
+      border-bottom: 6px solid black;
+      border-top: 6px solid black;
+      border-right: 6px solid black;
+      height: 200px;
+      background-color: black;
+    }
+            .info {
+                display: none;
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                background-color: #f9f9f9;
+            }
+        </style></head>
+    <body>
+        <header><marquee><h1>
+          <img src="{{ url_for('static', filename='image.jpg') }}"height="50" alt="Image">        SMART HELMET</h1></marquee>
+        </header><pre>
+    <div class="topnav">
+      <img src="{{ url_for('static', filename='image.jpg') }}"height="40" alt="Image">  <a href="/">HOME</a>   <a href="/features.html">FEATURES</a>  <a href="/login.html">LOGIN/SIGN UP</a>
+    </div>
+    </pre>
+    FEATURES ARE AS FOLLOWS :
+    <OL>
+        <li>BLUETOOTH CONNECTIVITY</li>
+        <li>GPS TRACKER</li>
+        <li>REAL TIME DATA</li>
+        <LI>EMERGENCY ALERTS</LI>
+        <LI>INTEGRATION WITH EMERGENCY SURVILLANCE</LI>
+    </OL>
+    </body>
+</html>
